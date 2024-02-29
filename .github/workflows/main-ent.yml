@@ -22,7 +22,7 @@ jobs:
         run: npm install @octokit/rest
 
       - name: Fetch participation metrics
-        run: node fetchMetrics.js
+        run: node fetchMetrics-ent.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENTERPRISE_NAME: 'your-enterprise-name'
+          ENTERPRISE_NAME: 'WardCorp'
