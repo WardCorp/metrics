@@ -1,5 +1,5 @@
 # .github/workflows/main.yml
-name: Fetch Participation Metrics
+name: Fetch Participation Metrics (Organisation)
 on:
   push:
     branches: [ main ]
