@@ -1,0 +1,28 @@
+# .github/workflows/main.yml
+name: Fetch Participation Metrics
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * *' # Run daily at midnight
+
+jobs:
+  fetch_metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install @octokit/rest
+
+      - name: Fetch participation metrics
+        run: node fetchMetrics.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORG_NAME: 'your-org-name'
