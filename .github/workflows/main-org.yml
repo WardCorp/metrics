@@ -19,7 +19,7 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install @octokit/rest
+        run: npm install
 
       - name: Fetch participation metrics
         run: node fetchMetrics-org.js
